@@ -4,7 +4,7 @@ import DBInterface from '../config/dbInterface.js';
 const ProjetoRepository = {
     async findAll() {
         const rows = await DBInterface.query("SELECT * FROM projeto");
-        return rows.map(row => new Projeto(row.id, row.nome));
+        return rows.map(row => new Projeto(row.id, row.nome,));
     },
 
     async createProject(projeto) {
