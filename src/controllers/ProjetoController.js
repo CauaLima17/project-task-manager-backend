@@ -19,6 +19,16 @@ const ProjetoController = {
         } catch(err){
             res.status(500).json({error: "Erro na criação de projetos", err});
         }
+    },
+
+    async getByUserID(req, res){
+        const {user_id} = req.params;
+        try {
+            const projetos = await ProjetoRepository.findByUserID(user_id)
+            res.status(200).json(projetos);
+        } catch (err) {
+            res.status(500).json({error: "Erro na busca de projetos por USER ID"});
+        }
     }
 };
 

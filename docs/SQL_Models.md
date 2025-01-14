@@ -4,6 +4,7 @@
 -- Modelo de tabela 'Projeto'
 create table projeto (
    	id int AUTO_INCREMENT PRIMARY KEY,
+    user_id int
     nome varchar(300) not null
 );
 

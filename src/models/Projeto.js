@@ -1,6 +1,7 @@
 class Projeto {
-    constructor(id, nome) {
+    constructor(id, user_id, nome) {
         this._id = id;
+        this._user_id = user_id
         this._nome = nome;
     }
 
@@ -12,8 +13,16 @@ class Projeto {
         this._nome = nome;
     }
 
+    setUserID(user_id){
+        this._user_id = user_id;
+    }
+
     getID(){
         return this._id;
+    }
+
+    getUserID(){
+        return this._user_id;
     }
 
     getNome(){
