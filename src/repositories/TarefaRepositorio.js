@@ -1,7 +1,7 @@
 import Tarefa from '../models/Tarefa.js';
 import DBInterface from '../config/dbInterface.js';
 
-const TarefaRepository = {
+const TarefaRepositorio = {
     async findAll() {
         const rows = await DBInterface.query("SELECT * FROM tarefa");
         return rows.map(row => new Tarefa(row.id, row.titulo, row.descricao, row.projeto_id));
@@ -19,5 +19,5 @@ const TarefaRepository = {
     }
 }
 
-export default TarefaRepository;
+export default TarefaRepositorio;
 

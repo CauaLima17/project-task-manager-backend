@@ -1,7 +1,7 @@
 import Projeto from '../models/Projeto.js';
 import DBInterface from '../config/dbInterface.js';
 
-const ProjetoRepository = {
+const ProjetoRepositorio = {
     async findAll() {
         const rows = await DBInterface.query("SELECT * FROM projeto");
         return rows.map(row => new Projeto(row.id, row.user_id, row.nome));
@@ -14,10 +14,10 @@ const ProjetoRepository = {
         return projeto
     },
 
-    async findByUserID(user) {
-        const rows = await DBInterface.query('SELECT * FROM projeto WHERE user_id = (?)', [user.user_id])
+    async findByUserID(user_id) {
+        const rows = await DBInterface.query('SELECT * FROM projeto WHERE user_id = (?)', [user_id])
         return rows.map(row => new Projeto(row.id, row.user_id, row.nome));
     }
 }
 
-export default ProjetoRepository;
+export default ProjetoRepositorio;

@@ -1,9 +1,9 @@
-import TarefaRepository from "../repositories/TarefaRepositorio.js";
+import TarefaRepositorio from "../repositories/TarefaRepositorio.js";
 
 const TarefaController = {
     async getAll(req, res){
         try {
-            const tarefas = await TarefaRepository.findAll();
+            const tarefas = await TarefaRepositorio.findAll();
             res.json(tarefas);
         } catch (err) {
             res.status(500).json({err : 'Erro na busca de tarefas', err})
@@ -11,10 +11,10 @@ const TarefaController = {
     },
     
     async create(req, res){
-        const {nome} = req.body;
+        const {titulo, descricao, projeto_id} = req.body;
         try {
-            const novaTarefa = {nome};
-            const tarefaCriada = await TarefaRepository.createTarefa(novaTarefa);
+            const novaTarefa = {titulo, descricao, projeto_id};
+            const tarefaCriada = await TarefaRepositorio.createTask(novaTarefa);
             res.status(201).json(tarefaCriada);
         } catch(err){
             res.status(500).json({err: "Erro na criação da tarefa", err});
@@ -25,7 +25,7 @@ const TarefaController = {
         const {projeto_id} = req.params
         
         try {
-            const tarefas = await TarefaRepository.findByProjectId(projeto_id);
+            const tarefas = await TarefaRepositorio.findByProjectId(projeto_id);
             res.json(tarefas);
         } catch (err) {
             res.status(500).json({err: "Erro na busca de tarefas por id de projeto", err});
