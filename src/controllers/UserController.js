@@ -13,7 +13,6 @@ const UserController = {
 
     async register(req, res){
         const {username, email, password} = req.body
-
         try {
             const novoUser = {username, email, password}
             const users = await UserRepositorio.findByEmail(novoUser);
@@ -30,21 +29,7 @@ const UserController = {
         } catch (error) {
             res.status(500).json({error: 'Erro ao registrar usuário.'})
         }
-    },
-
-    async login(req, res){
-        const {email, password} = req.body
-
-        try {
-            const novoUser = {email, password}
-            const users = await UserRepositorio.findByEmail(novoUser)
-
-            if (users.length === 0) {
-                res.status(404).json({error: 'Usuário não encontrado.'})
-            }
-
-        } catch (err) {
-            res.status(500).json({error: 'Erro ao logar usuário.'})
-        }
     }
 }
+
+export default UserController;

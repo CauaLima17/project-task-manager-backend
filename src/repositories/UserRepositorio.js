@@ -8,7 +8,7 @@ const UserRepositorio = {
     },
 
     async create(user){
-        const result = await DBInterface.query('INSERT INTO users (username, email, hash_password) VALUES (?,?,?)', [user.username, user.email, user.hash_password]);
+        const result = await DBInterface.query('INSERT INTO users (username, email, hash_password) VALUES (?,?,?)', [user.username, user.email, user.password]);
 
         user.id = result.insertId
         return user

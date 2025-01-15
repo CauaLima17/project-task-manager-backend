@@ -8,7 +8,7 @@ const ProjetoRepository = {
     },
 
     async createProject(projeto) {
-        const result = await DBInterface.query('INSERT INTO projeto (nome) VALUES (?)', [projeto.nome, projeto.user_id]);
+        const result = await DBInterface.query('INSERT INTO projeto (nome, user_id) VALUES (?,?)', [projeto.nome, projeto.user_id]);
 
         projeto.id = result.insertId;
         return projeto

@@ -1,11 +1,20 @@
 # Modelos utilizados na criação das tabelas do projeto
 
 ```sql
+-- Modelo de tabela 'Users'
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(80) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    hash_password VARCHAR(255) NOT NULL
+)
+
 -- Modelo de tabela 'Projeto'
-create table projeto (
-   	id int AUTO_INCREMENT PRIMARY KEY,
-    user_id int
-    nome varchar(300) not null
+CREATE TABLE projeto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    nome VARCHAR(300) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Modelo de tabela 'Tarefa'
