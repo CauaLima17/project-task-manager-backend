@@ -18,3 +18,5 @@ Sobre a organização do projeto:
 - Controllers -->
 
 - Routers -->
+
+import jwt_decode from "jwt-decode"; --> Para decodificar o Token no Frontend
