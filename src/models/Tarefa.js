@@ -1,10 +1,12 @@
 class Tarefa {
-    constructor(id, titulo, descricao, projeto_id, user_id){
+    constructor(id, titulo, descricao, projeto_id, user_id, status = null, prioridade = null){
         this._id = id 
         this._titulo = titulo 
         this._descricao = descricao 
         this._projeto_id = projeto_id
         this._user_id = user_id
+        this._status = status
+        this._prioridade = prioridade
     }
 
     setID(id) {
@@ -27,6 +29,14 @@ class Tarefa {
         this._user_id = user_id;
     }
 
+    setStatus(status) {
+        this._status = status;
+    }
+
+    setPrioridade(prioridade) {
+        this._prioridade = prioridade;
+    }
+
     getID(){
         return this._id;
     }
@@ -45,6 +55,14 @@ class Tarefa {
 
     getUser_id(){
         return this._user_id;
+    }
+
+    getStatus() {
+        return this._status;
+    }
+
+    getPrioridade() {
+        return this._prioridade;
     }
 }
 
