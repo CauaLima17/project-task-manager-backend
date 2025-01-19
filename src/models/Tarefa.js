@@ -1,9 +1,10 @@
 class Tarefa {
-    constructor(id, titulo, descricao, projeto_id){
+    constructor(id, titulo, descricao, projeto_id, user_id){
         this._id = id 
         this._titulo = titulo 
         this._descricao = descricao 
-        this._projeto_id = projeto_id 
+        this._projeto_id = projeto_id
+        this._user_id = user_id
     }
 
     setID(id) {
@@ -22,6 +23,10 @@ class Tarefa {
         this._projeto_id = projeto_id;
     }
 
+    setUser_id(user_id) {
+        this._user_id = user_id;
+    }
+
     getID(){
         return this._id;
     }
@@ -36,6 +41,10 @@ class Tarefa {
 
     getProjeto_id(){
         return this._projeto_id;
+    }
+
+    getUser_id(){
+        return this._user_id;
     }
 }
 

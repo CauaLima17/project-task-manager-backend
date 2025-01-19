@@ -24,8 +24,8 @@ const UserController = {
             const hash_password = await bcrypt.hash(password, 8)
             novoUser.password = hash_password
 
-            const user = await UserRepositorio.create(novoUser);
-            return res.status(200).json(user);
+            await UserRepositorio.create(novoUser);
+            return res.status(200).json({message: 'Usuário cadastrado com sucesso.'});
         } catch (error) {
             res.status(500).json({error: 'Erro ao registrar usuário.'})
         }

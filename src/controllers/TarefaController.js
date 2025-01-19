@@ -30,6 +30,17 @@ const TarefaController = {
         } catch (err) {
             res.status(500).json({err: "Erro na busca de tarefas por id de projeto", err});
         }
+    },
+
+    async getAllByUserID(req, res){
+        const {user_id} = req.params
+
+        try {
+            const tarefas = await TarefaRepositorio.findByUserId(user_id);
+            res.status(200).json(tarefas)
+        } catch (err) {
+            res.status(500).json({err: "Erro na busca de tarefas por id de usuário"});
+        }
     }
 }
 
